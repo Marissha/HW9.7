@@ -1,9 +1,15 @@
 def is_prime(func):
     def wrapper(*args):
+        p = False
         original = func(*args)
-        if (int(original) % 2 != 0 and
-                int(original) % 3 != 0 and
-                int(original) % 4 != 0):
+        if original != 0:
+            for i in range(2, original):
+                if original % i != 0:
+                    p = True
+                else:
+                    p = False
+                    break
+        if p:
             print('Простое')
         else:
             print('Сложное')
